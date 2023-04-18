@@ -10,7 +10,21 @@
 
 ¡Bienvenidos al primer proyecto individual de la etapa de labs! En esta ocasión, deberán hacer un trabajo situándose en el rol de un ***MLOps Engineer***.  
 
-<hr>  
+<hr>  Proyectos_Plataformas_Streaming
+
+Primer entrega de trabajo práctico individual - Henry 18/04/2023
+
+En este proyecto individual se han elaborado una serie de funciones que interactúan con una base de datos de películas tomadas desde cuatro plataformas: Amazon, Disney Plus, Hulu y Netflix.
+
+Dentro de este repositorio, encontraremos principalmente dos carpetas: la carpeta "data" y la carpeta "ETL".
+
+La carpeta "data" contiene principalmente todos los SB que fueron dados como consigna, más los procedimientos de ETL propios de este sistema. Uno para lo que es la base de datos de películas y otro para lo que es la base de datos de valoraciones de usuarios.
+
+Comenzamos describiendo el ETL de la base de datos de películas, donde se pulió cada uno de los detalles del mismo de manera que se facilite su importación hacia el modelo. Hoy se obtuvo una base de datos con todos los ID y propiedades de cada una de las películas, la cual fue conformada con el resultante del procedimiento de ETL de la base de datos de valoraciones o votaciones de los usuarios. Se calificó cada película con un nuevo parámetro de rating, el cual se contiene dentro de varios parámetros, como por ejemplo, una cantidad de votos que recibió la película, la votación promedio y también un parámetro que indica la confiabilidad y criterios de cada usuario, afectando este rating.
+
+Una vez se ha creado el rating, elaboramos una matriz de películas, donde cada uno de los tópicos de la columna "listed in" que hace referencia a la categoría de la película (por ejemplo, si es de terror o comedia) fueron colocados como columnas con un 0 y 1 respectivamente, si la película pertenece o no a ese tópico. Es decir, si en "listed in" de esa película sale que la película es de terror, en la columna de terror para ese ID de película obtendremos un 1 y un 0 en comedia, por ejemplo, si la película no fue catalogada como comedia. A su vez, esos 0 y 1 fueron multiplicados por el nuevo cálculo de rating, lo que da una idea según los votos de los usuarios si la película catalogada como terror es muy terrorífica para valores de rating altos o no lo es tanto, si la película fue votada con bajo rating por parte de los usuarios.
+
+De esta forma, obtenemos la matriz en la cual se basará nuestro modelo de coseno de similitud para recomendar la película más parecida a la que insertamos en la función.
 
 ## **Descripción del problema (Contexto y rol a desarrollar)**
 
